@@ -20,22 +20,16 @@ class NotesLocalRepository(
         }
     }
 
-    override suspend fun getNoteById(id: String): Result<NoteDTO> {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun addNote(note: NoteDTO) {
         notesDao.addNote(note)
     }
-
 
     override suspend fun deleteNoteById(id: String) = withContext(ioDispatcher) {
         notesDao.deleteNoteById(id)
     }
 
-    override suspend fun deleteAllNotes() {
-        TODO("Not yet implemented")
+    override suspend fun updateNote(note: NoteDTO): Int {
+        return notesDao.updateNote(note)
     }
-
 
 }

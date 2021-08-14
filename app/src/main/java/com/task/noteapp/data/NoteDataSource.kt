@@ -9,8 +9,7 @@ import com.task.noteapp.data.dto.Result
  */
 interface NoteDataSource {
     suspend fun getNotes(): Result<List<NoteDTO>>
-    suspend fun getNoteById(id: String): Result<NoteDTO>
     suspend fun addNote(note: NoteDTO)
+    suspend fun updateNote(note: NoteDTO): Int
     suspend fun deleteNoteById(id: String)
-    suspend fun deleteAllNotes()
 }

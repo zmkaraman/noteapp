@@ -11,6 +11,6 @@ interface NoteDataSource {
     suspend fun getNotes(): Result<List<NoteDTO>>
     suspend fun getNoteById(id: String): Result<NoteDTO>
     suspend fun addNote(note: NoteDTO)
-    suspend fun deleteNoteById(id: String): Result<NoteDTO>
+    suspend fun deleteNoteById(id: String)
     suspend fun deleteAllNotes()
 }

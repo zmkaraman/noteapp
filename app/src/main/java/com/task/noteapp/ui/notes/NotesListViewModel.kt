@@ -17,7 +17,6 @@ class NotesListViewModel(
     val notesList = MutableLiveData<List<NoteDataItem>>()
     val errorMessage = MutableLiveData<String>()
 
-
     fun getNotes() {
         viewModelScope.launch {
             //interacting with the dataSource has to be through a coroutine

@@ -41,7 +41,7 @@ class NoteListFragment : Fragment() {
         //Add binding values
         adapter = NoteDataListAdapter(NoteDataListAdapter.NoteDataListener { note ->
             view?.let {
-                //TODO Navigate to Edit Screen
+                Navigation.findNavController(it).navigate(NoteListFragmentDirections.actionNoteListFragmentToNoteDetailFragment(note))
             }
         })
 
@@ -56,16 +56,21 @@ class NoteListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         viewModel.errorMessage.observe(viewLifecycleOwner, {
             it?.let {
                 Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+                binding.noDataTextView.visibility = View.VISIBLE
             }
         })
 
         viewModel.notesList.observe(viewLifecycleOwner, { noteData ->
             noteData?.apply {
                 adapter?.submitList(this)
+                if (noteData.isEmpty()) {
+                    binding.noDataTextView.visibility = View.VISIBLE
+                } else {
+                    binding.noDataTextView.visibility = View.GONE
+                }
             }
         })
     }

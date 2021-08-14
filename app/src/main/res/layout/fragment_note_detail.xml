@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.task.noteapp.ui.newnote.AddNoteViewModel" />
+            name="noteDataItem"
+            type="com.task.noteapp.ui.notes.NoteDataItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,17 +14,28 @@
         android:layout_marginTop="@dimen/padding_large"
         android:background="@color/white">
 
-        <EditText
-            android:id="@+id/noteTitle"
+        <TextView
+            android:id="@+id/noteCreated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/note_title_hint"
-            android:text="@={viewModel.title}"
+            android:text="@={noteDataItem.createDate}"
             android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/noteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_title_hint"
+            android:text="@={noteDataItem.title}"
+            android:textColorHint="@color/cardview_dark_background"
+            android:textColor="@color/cardview_dark_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteCreated" />
 
         <EditText
             android:id="@+id/noteDescription"
@@ -34,20 +45,31 @@
             android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/cardview_dark_background"
             android:hint="@string/note_description_hint"
-            android:text="@={viewModel.description}"
+            android:text="@={noteDataItem.description}"
             android:lines="5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/noteTitle" />
 
         <Button
-            android:id="@+id/buttonAddNote"
-            android:layout_width="match_parent"
+            android:id="@+id/buttonUpdateNote"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
-            android:text="@string/note_button"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/note_update_button"
+            app:layout_constraintEnd_toStartOf="@+id/buttonDeleteNote"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteDescription"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/buttonDeleteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:text="@string/note_delete_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonUpdateNote"
             app:layout_constraintTop_toBottomOf="@+id/noteDescription"
             app:layout_constraintBottom_toBottomOf="parent"/>
 

@@ -2,6 +2,7 @@ package com.task.noteapp.ui.newnote
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.task.noteapp.data.NoteDataSource
 import com.task.noteapp.data.dto.NoteDTO
@@ -13,6 +14,10 @@ class AddNoteViewModel(
     private val dataSource: NoteDataSource
 ) : AndroidViewModel(app) {
 
+    val title = MutableLiveData<String>()
+    val description = MutableLiveData<String>()
+    val navigateBackToList = MutableLiveData<Boolean>()
+    val errorMsg = MutableLiveData<String>()
 
     fun validateAndAddNote(note: NoteDataItem) {
         if (validateEnteredData(note)) {
@@ -37,11 +42,14 @@ class AddNoteViewModel(
                     note.id
                 )
             )
+            navigateBackToList.value = true
         }
     }
 
     private fun validateEnteredData(note: NoteDataItem): Boolean {
         if (note.title.isNullOrEmpty() || note.description.isNullOrEmpty()) {
+            navigateBackToList.value = false
+            errorMsg.value = "Please enter valid data"
             return false
         }
         return true

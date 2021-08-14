@@ -29,8 +29,8 @@ class NotesLocalRepository(
     }
 
 
-    override suspend fun deleteNoteById(id: String): Result<NoteDTO> {
-        TODO("Not yet implemented")
+    override suspend fun deleteNoteById(id: String) = withContext(ioDispatcher) {
+        notesDao.deleteNoteById(id)
     }
 
     override suspend fun deleteAllNotes() {

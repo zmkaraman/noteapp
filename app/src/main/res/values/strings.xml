@@ -5,5 +5,11 @@
     <string name="note_title_hint">Please enter a note title</string>
     <string name="note_description_hint">Please enter a note description</string>
     <string name="note_button">Add Note</string>
+    <string name="note_delete_button">Delete Note</string>
+    <string name="note_update_button">Update Note</string>
+    <string name="note_date_created">Create Date: %1$s</string>
+    <string name="note_date_updated">Update Date: %1$s</string>
+
+
 
 </resources>

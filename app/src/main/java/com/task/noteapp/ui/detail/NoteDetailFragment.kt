@@ -1,24 +1,21 @@
-package com.task.noteapp.ui.newnote
+package com.task.noteapp.ui.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.task.noteapp.R
-import com.task.noteapp.databinding.FragmentAddNoteBinding
-import com.task.noteapp.ui.notes.NoteDataItem
-import com.task.noteapp.util.AppUtil
+import com.task.noteapp.databinding.FragmentNoteDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+class NoteDetailFragment : Fragment(){
 
-class AddNoteFragment : Fragment() {
-
-    lateinit var binding : FragmentAddNoteBinding
-    val viewModel: AddNoteViewModel by viewModel()
+    lateinit var binding : FragmentNoteDetailBinding
+    val viewModel: NoteDetailViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,18 +25,24 @@ class AddNoteFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_add_note, container, false
+                R.layout.fragment_note_detail, container, false
             )
 
+        val note = arguments?.let {
+            NoteDetailFragmentArgs.fromBundle(it).note
+        }
 
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding.noteDataItem = note
 
-        binding.buttonAddNote.setOnClickListener {
+        binding.buttonDeleteNote.setOnClickListener {
+            note?.let {
+                viewModel.deleteNote(it.id)
+            }
+        }
 
-            val note = NoteDataItem(viewModel.title.value,
-                viewModel.description.value, AppUtil.getSystemTimeDate(),null,null)
-            viewModel.validateAndAddNote(note)
+        binding.buttonUpdateNote.setOnClickListener {
+
         }
 
         return binding.root
@@ -50,7 +53,7 @@ class AddNoteFragment : Fragment() {
 
         viewModel.navigateBackToList.observe(viewLifecycleOwner, {
             if (it) {
-                Navigation.findNavController(view).navigate(R.id.action_addNoteFragment_to_noteListFragment)
+                Navigation.findNavController(view).navigate(R.id.action_noteDetailFragment_to_noteListFragment)
             }
         })
 

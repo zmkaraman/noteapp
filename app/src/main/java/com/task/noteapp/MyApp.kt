@@ -4,6 +4,7 @@ import android.app.Application
 import com.task.noteapp.data.NoteDataSource
 import com.task.noteapp.data.local.LocalDB
 import com.task.noteapp.data.local.NotesLocalRepository
+import com.task.noteapp.ui.detail.NoteDetailViewModel
 import com.task.noteapp.ui.newnote.AddNoteViewModel
 import com.task.noteapp.ui.notes.NotesListViewModel
 import org.koin.android.ext.koin.androidContext
@@ -34,6 +35,14 @@ class MyApp : Application() {
                     get() as NoteDataSource
                 )
             }
+
+            viewModel {
+                NoteDetailViewModel(
+                    get(),
+                    get() as NoteDataSource
+                )
+            }
+
 
             single { NotesLocalRepository(get()) as NoteDataSource }
             single { LocalDB.createNotesDao(this@MyApp) }

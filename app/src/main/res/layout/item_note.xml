@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -10,62 +9,106 @@
             type="com.task.noteapp.ui.notes.NoteDataItem" />
         <variable
             name="clickListener"
-            type="com.task.noteapp.ui.notes.NoteDataListAdapter.NoteDataListener"/>
+            type="com.task.noteapp.ui.notes.NoteDataListAdapter.NoteDataListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_small"
-        android:onClick="@{() -> clickListener.onClick(note)}">
-
-        <TextView
-            android:id="@+id/textViewId"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="sans-serif-black"
-            android:textSize="@dimen/text_size_normal"
-            android:text="@{note.title}"
-            tools:text="Title"/>
+            app:cardCornerRadius="@dimen/padding_medium"
+            app:cardElevation="@dimen/padding_medium"
+            app:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/textViewDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_medium"
-            android:layout_marginBottom="@dimen/padding_small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewId"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="@dimen/text_size_small"
-            android:maxLines="2"
-            android:text="@{note.description}"
-            tools:text="Description"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:onClick="@{() -> clickListener.onClick(note)}"
+                android:padding="@dimen/padding_small">
 
-        <TextView
-            android:id="@+id/textViewCreated"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{note.createDate}"
-            tools:text="Created Date"/>
+                <TextView
+                    android:id="@+id/textViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{note.title}"
+                    android:textSize="@dimen/text_size_normal"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                    app:layout_constraintTop_toTopOf="@+id/guidelineTop"
+                    tools:text="Title" />
 
-        <TextView
-            android:id="@+id/textViewUpdated"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:background="@color/red"
-            app:formatUpdateTag="@{note.updateDate}"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
-            tools:text=""/>
+                <TextView
+                    android:id="@+id/textViewDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:layout_marginBottom="@dimen/padding_small"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="2"
+                    android:text="@{note.description}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineStart"                    app:layout_constraintTop_toBottomOf="@+id/textViewId"
+                    tools:text="Description" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textViewCreated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{note.createDate}"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Created Date" />
 
+                <TextView
+                    android:id="@+id/textViewUpdated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:background="@color/red"
+                    android:textColor="@color/white"
+                    app:formatUpdateTag="@{note.updateDate}"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+                    app:layout_constraintBottom_toTopOf="@id/guideLineBottom"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/padding_medium" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/padding_medium" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/padding_normal" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/padding_normal" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/padding_small" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 </layout>

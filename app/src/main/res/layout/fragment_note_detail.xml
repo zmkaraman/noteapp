@@ -11,55 +11,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/padding_large"
-        android:background="@color/white">
+        android:background="@color/yellow">
 
         <TextView
             android:id="@+id/noteCreated"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_medium"
-            app:formatCreateTag="@{noteDataItem.createDate}"
-            android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/cardview_dark_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColorHint="@color/cardview_dark_background"
+            app:formatCreateTag="@{noteDataItem.createDate}"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toStartOf="@+id/noteUpdated"
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop"/>
 
         <TextView
             android:id="@+id/noteUpdated"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:formatUpdateTag="@{noteDataItem.updateDate}"
-            android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/cardview_dark_background"
+            android:textColorHint="@color/cardview_dark_background"
+            app:formatUpdateTag="@{noteDataItem.updateDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/noteCreated"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop" />
 
         <EditText
             android:id="@+id/noteTitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_normal"
             android:hint="@string/note_title_hint"
             android:text="@={noteDataItem.title}"
-            android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/cardview_dark_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="@color/cardview_dark_background"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/noteCreated" />
 
         <EditText
             android:id="@+id/noteDescription"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:textColorHint="@color/cardview_dark_background"
-            android:textColor="@color/cardview_dark_background"
             android:hint="@string/note_description_hint"
-            android:text="@={noteDataItem.description}"
             android:lines="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@={noteDataItem.description}"
+            android:textColor="@color/cardview_dark_background"
+            android:textColorHint="@color/cardview_dark_background"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/noteTitle" />
 
         <Button
@@ -68,10 +68,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
             android:text="@string/note_update_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonDeleteNote"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteDescription"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/noteDescription" />
 
         <Button
             android:id="@+id/buttonDeleteNote"
@@ -79,10 +79,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
             android:text="@string/note_delete_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonUpdateNote"
-            app:layout_constraintTop_toBottomOf="@+id/noteDescription"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/noteDescription" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/padding_medium" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/padding_medium" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/padding_normal" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

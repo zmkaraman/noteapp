@@ -95,13 +95,6 @@
                     app:layout_constraintGuide_begin="@dimen/padding_normal" />
 
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guidelineBottom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_begin="@dimen/padding_normal" />
-
-                <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideLineBottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

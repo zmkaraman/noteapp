@@ -17,7 +17,7 @@ class NoteDetailViewModel (app: Application,
     val navigateBackToList = MutableLiveData<Boolean>()
     val errorMsg = MutableLiveData<String>()
 
-    fun validateAndAddNote(note: NoteDataItem) {
+    fun validateAndUpdateNote(note: NoteDataItem) {
         if (validateEnteredData(note)) {
             updateNote(note)
         }

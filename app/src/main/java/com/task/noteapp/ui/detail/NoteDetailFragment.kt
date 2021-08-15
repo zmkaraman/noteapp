@@ -48,7 +48,7 @@ class NoteDetailFragment : Fragment(){
                 val note = NoteDataItem(binding.noteDataItem?.title,
                     binding.noteDataItem?.description, note.createDate,
                     AppUtil.getSystemTimeDate(), note.imageUrl, note.id)
-                viewModel.validateAndAddNote(note)
+                viewModel.validateAndUpdateNote(note)
             }
         }
 

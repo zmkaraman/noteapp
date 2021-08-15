@@ -9,9 +9,7 @@ class FakeDataSource(var notes: MutableList<NoteDTO>? = mutableListOf() ) : Note
 
     private var shouldReturnError = false
     private var shouldReturnMockData = false
-
-
-    var noteServiceData: MutableList<NoteDTO> = mutableListOf()
+    private var noteServiceData: MutableList<NoteDTO> = mutableListOf()
 
     fun setReturnError(value: Boolean) {
         shouldReturnError = value

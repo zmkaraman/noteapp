@@ -1,4 +1,4 @@
-package com.task.noteapp.addnote
+package com.task.noteapp.detail
 
 
 import android.os.Build
@@ -8,7 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.task.noteapp.FakeDataSource
 import com.task.noteapp.data.dto.NoteDTO
 import com.task.noteapp.getOrAwaitValue
-import com.task.noteapp.ui.newnote.AddNoteViewModel
+import com.task.noteapp.ui.detail.NoteDetailViewModel
 import com.task.noteapp.ui.notes.NoteDataItem
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.MatcherAssert
@@ -21,12 +21,11 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.O_MR1])
 @ExperimentalCoroutinesApi
-class AddNoteViewModelTest {
-
+class NoteDetailViewModelTest {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
     // Subject under test
-    private lateinit var addNoteViewModel: AddNoteViewModel
+    private lateinit var noteDetailViewModel: NoteDetailViewModel
 
     private lateinit var datasource: FakeDataSource
 
@@ -36,10 +35,10 @@ class AddNoteViewModelTest {
 
         var notes: MutableList<NoteDTO> = mutableListOf()
         datasource = FakeDataSource()
-        notes.add(NoteDTO("Note 1", "Description1","14-08-2021",null,null))
-        notes.add(NoteDTO("Note 2", "Description2","14-08-2021","15-08-2021",null))
+        notes.add(NoteDTO("Note 1", "Description1","14-08-2021",null,null,"1"))
+        notes.add(NoteDTO("Note 2", "Description2","14-08-2021","15-08-2021",null, "2"))
 
-        addNoteViewModel = AddNoteViewModel(ApplicationProvider.getApplicationContext(), datasource)
+        noteDetailViewModel = NoteDetailViewModel(ApplicationProvider.getApplicationContext(), datasource)
     }
 
     @After
@@ -48,14 +47,26 @@ class AddNoteViewModelTest {
     }
 
     @Test
-    fun `addNote when Title is empty returns error Msg`() {
+    fun `delete Note when Title is Correct returns navigate back`() {
+
+        // Given a fresh TasksViewModel
+        noteDetailViewModel.deleteNote("1")
+
+        // Then the new task event is triggered
+        val value = noteDetailViewModel.navigateBackToList.getOrAwaitValue()
+        MatcherAssert.assertThat(true, `is`(value))
+
+    }
+
+    @Test
+    fun `updateNote when Title is empty returns error Msg`() {
 
         var noteDataItem = NoteDataItem("","","", null, null, "")
         // Given a fresh TasksViewModel
-        addNoteViewModel.validateAndAddNote(noteDataItem)
+        noteDetailViewModel.validateAndUpdateNote(noteDataItem)
 
         // Then the new task event is triggered
-        val value = addNoteViewModel.errorMsg.getOrAwaitValue()
+        val value = noteDetailViewModel.errorMsg.getOrAwaitValue()
         MatcherAssert.assertThat("Please enter valid data", `is`(value))
 
     }
@@ -66,10 +77,10 @@ class AddNoteViewModelTest {
 
         var noteDataItem = NoteDataItem("Title","Description","", null, null, "")
         // Given a fresh TasksViewModel
-        addNoteViewModel.validateAndAddNote(noteDataItem)
+        noteDetailViewModel.validateAndUpdateNote(noteDataItem)
 
         // Then the new task event is triggered
-        val value = addNoteViewModel.navigateBackToList.getOrAwaitValue()
+        val value = noteDetailViewModel.navigateBackToList.getOrAwaitValue()
         MatcherAssert.assertThat(true, `is`(value))
 
     }

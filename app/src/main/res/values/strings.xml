@@ -8,7 +8,7 @@
     <string name="note_delete_button">Delete Note</string>
     <string name="note_update_button">Update Note</string>
     <string name="note_date_created">Create Date: %1$s</string>
-    <string name="note_date_updated">Update Date: %1$s</string>
+    <string name="note_date_updated">Updated %1$s</string>
 
 
 

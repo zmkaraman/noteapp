@@ -16,6 +16,7 @@ class NotesListViewModel(
 
     val notesList = MutableLiveData<List<NoteDataItem>>()
     val errorMessage = MutableLiveData<String>()
+    val showNoData: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getNotes() {
         viewModelScope.launch {
@@ -35,9 +36,12 @@ class NotesListViewModel(
                         )
                     })
                     notesList.value = dataList
+                    showNoData.value = dataList.isEmpty()
                 }
-                is Result.Error ->
+                is Result.Error -> {
                     errorMessage.value = result.message
+                    showNoData.value = true
+                }
             }
         }
     }

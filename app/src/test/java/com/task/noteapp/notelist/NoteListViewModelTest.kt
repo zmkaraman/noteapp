@@ -1,10 +1,12 @@
-package com.task.noteapp
+package com.task.noteapp.notelist
 
 import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.task.noteapp.FakeDataSource
 import com.task.noteapp.data.dto.NoteDTO
+import com.task.noteapp.getOrAwaitValue
 import com.task.noteapp.ui.notes.NotesListViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.MatcherAssert

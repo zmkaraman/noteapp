@@ -6,10 +6,16 @@ import com.task.noteapp.R
 
 
 @BindingAdapter("formatUpdateTag")
-fun bindStringText(textView: TextView, dateStr: String?) {
-
+fun bindUpdateTagText(textView: TextView, dateStr: String?) {
     dateStr?.let {
         textView.text = textView.resources.getString(R.string.note_date_updated, dateStr)
     }
+}
 
+
+@BindingAdapter("formatCreateTag")
+fun bindCreateTagText(textView: TextView, dateStr: String?) {
+    dateStr?.let {
+        textView.text = textView.resources.getString(R.string.note_date_created, dateStr)
+    }
 }

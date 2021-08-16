@@ -12,7 +12,7 @@
             type="com.task.noteapp.ui.notes.NoteDataListAdapter.NoteDataListener" />
     </data>
 
-        <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,6 +51,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guidelineStart"                    app:layout_constraintTop_toBottomOf="@+id/textViewId"
                     tools:text="Description" />
+
 
                 <TextView
                     android:id="@+id/textViewCreated"
@@ -103,5 +104,5 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

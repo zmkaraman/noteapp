@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.task.noteapp.R
 import com.task.noteapp.databinding.FragmentNoteListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -73,6 +75,28 @@ class NoteListFragment : Fragment() {
                 }
             }
         })
+
+        val itemTouchHelper =  ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+               return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val note = viewModel.notesList.value?.get(position)
+                note?.let {
+                    viewModel.deleteNote(it.id)
+                }
+                Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        itemTouchHelper.attachToRecyclerView(binding.notesRecyclerView)
     }
+
 
 }

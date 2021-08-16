@@ -55,7 +55,12 @@ class NotesListViewModel(
 
     fun deleteNote(id: String) {
         viewModelScope.launch {
+            status.value = LoadingStatus.LOADING
             dataSource.deleteNoteById(id)
+            //refresh list after delete
+            getNotes()
+            status.value = LoadingStatus.DONE
+
         }
     }
 }

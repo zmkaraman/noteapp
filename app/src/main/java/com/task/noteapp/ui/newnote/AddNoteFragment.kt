@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.task.noteapp.R
 import com.task.noteapp.databinding.FragmentAddNoteBinding
-import com.task.noteapp.ui.notes.NoteDataItem
+import com.task.noteapp.model.NoteDataItem
 import com.task.noteapp.util.AppUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

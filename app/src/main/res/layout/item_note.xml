@@ -6,7 +6,7 @@
     <data>
         <variable
             name="note"
-            type="com.task.noteapp.ui.notes.NoteDataItem" />
+            type="com.task.noteapp.model.NoteDataItem" />
         <variable
             name="clickListener"
             type="com.task.noteapp.ui.notes.NoteDataListAdapter.NoteDataListener" />

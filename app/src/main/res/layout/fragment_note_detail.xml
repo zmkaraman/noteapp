@@ -5,7 +5,7 @@
     <data>
         <variable
             name="noteDataItem"
-            type="com.task.noteapp.ui.notes.NoteDataItem" />
+            type="com.task.noteapp.model.NoteDataItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

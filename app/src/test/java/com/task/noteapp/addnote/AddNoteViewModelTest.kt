@@ -9,7 +9,7 @@ import com.task.noteapp.FakeDataSource
 import com.task.noteapp.data.dto.NoteDTO
 import com.task.noteapp.getOrAwaitValue
 import com.task.noteapp.ui.newnote.AddNoteViewModel
-import com.task.noteapp.ui.notes.NoteDataItem
+import com.task.noteapp.model.NoteDataItem
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.MatcherAssert
 import org.hamcrest.core.Is.`is`

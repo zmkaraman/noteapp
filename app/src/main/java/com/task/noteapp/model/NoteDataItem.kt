@@ -1,4 +1,4 @@
-package com.task.noteapp.ui.notes
+package com.task.noteapp.model
 
 import java.io.Serializable
 import java.util.*

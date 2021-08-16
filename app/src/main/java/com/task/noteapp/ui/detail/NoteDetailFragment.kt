@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.task.noteapp.R
 import com.task.noteapp.databinding.FragmentNoteDetailBinding
-import com.task.noteapp.ui.notes.NoteDataItem
+import com.task.noteapp.model.NoteDataItem
 import com.task.noteapp.util.AppUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NoteDetailFragment : Fragment(){
+class NoteDetailFragment : Fragment() {
 
-    lateinit var binding : FragmentNoteDetailBinding
+    lateinit var binding: FragmentNoteDetailBinding
     val viewModel: NoteDetailViewModel by viewModel()
 
     override fun onCreateView(
@@ -45,9 +45,11 @@ class NoteDetailFragment : Fragment(){
 
         binding.buttonUpdateNote.setOnClickListener {
             note?.let {
-                val note = NoteDataItem(binding.noteDataItem?.title,
+                val note = NoteDataItem(
+                    binding.noteDataItem?.title,
                     binding.noteDataItem?.description, note.createDate,
-                    AppUtil.getSystemTimeDate(), note.imageUrl, note.id)
+                    AppUtil.getSystemTimeDate(), note.imageUrl, note.id
+                )
                 viewModel.validateAndUpdateNote(note)
             }
         }

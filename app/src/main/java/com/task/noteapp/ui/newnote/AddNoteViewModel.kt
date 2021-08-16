@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.task.noteapp.data.NoteDataSource
 import com.task.noteapp.data.dto.NoteDTO
-import com.task.noteapp.ui.notes.NoteDataItem
+import com.task.noteapp.model.NoteDataItem
 import kotlinx.coroutines.launch
 
 class AddNoteViewModel(

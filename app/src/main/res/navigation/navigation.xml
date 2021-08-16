@@ -40,7 +40,7 @@
         android:label="NoteDetailFragment" >
         <argument
             android:name="note"
-            app:argType="com.task.noteapp.ui.notes.NoteDataItem"/>
+            app:argType="com.task.noteapp.model.NoteDataItem"/>
         <action
             android:id="@+id/action_noteDetailFragment_to_noteListFragment"
             app:destination="@id/noteListFragment"/>

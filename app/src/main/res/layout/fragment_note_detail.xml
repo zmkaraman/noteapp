@@ -36,30 +36,40 @@
 
         <EditText
             android:id="@+id/noteTitle"
+            style="@style/CustomEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_normal"
             android:hint="@string/note_title_hint"
             android:text="@={noteDataItem.title}"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/noteCreated" />
 
         <EditText
             android:id="@+id/noteDescription"
+            style="@style/CustomEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:hint="@string/note_description_hint"
             android:lines="5"
             android:text="@={noteDataItem.description}"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@+id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/noteTitle" />
+
+
+        <EditText
+            android:id="@+id/noteImageUrl"
+            style="@style/CustomEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_image_hint"
+            android:text="@={noteDataItem.imageUrl}"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/noteDescription"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"/>
 
         <Button
             android:id="@+id/buttonUpdateNote"
@@ -72,7 +82,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonDeleteNote"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/noteImageUrl" />
 
         <Button
             android:id="@+id/buttonDeleteNote"
@@ -85,7 +95,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonUpdateNote"
-            app:layout_constraintTop_toBottomOf="@+id/noteDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/noteImageUrl" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineStart"

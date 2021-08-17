@@ -27,7 +27,10 @@ fun bindCreateTagText(textView: TextView, dateStr: String?) {
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
+    if (imgUrl.isNullOrEmpty()) {
+        imgView.visibility = View.GONE
+    } else {
+        imgView.visibility = View.VISIBLE
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
             .load(imgUri)

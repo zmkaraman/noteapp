@@ -4,6 +4,7 @@
 
     <string name="note_title_hint">Please enter a note title</string>
     <string name="note_description_hint">Please enter a note description</string>
+    <string name="note_image_hint">Please enter an image url (optional)</string>
     <string name="note_button">Add New Note</string>
     <string name="note_delete_button">Delete</string>
     <string name="note_update_button">Save</string>

@@ -17,28 +17,28 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddNoteFragment : Fragment() {
 
-    lateinit var binding : FragmentAddNoteBinding
+    lateinit var binding: FragmentAddNoteBinding
     val viewModel: AddNoteViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         binding =
             DataBindingUtil.inflate(
                 inflater,
                 R.layout.fragment_add_note, container, false
             )
 
-
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
         binding.buttonAddNote.setOnClickListener {
 
-            val note = NoteDataItem(viewModel.title.value,
-                viewModel.description.value, AppUtil.getSystemTimeDate(),null,null)
+            val note = NoteDataItem(
+                viewModel.title.value,
+                viewModel.description.value, AppUtil.getSystemTimeDate(), null, viewModel.imageUrl.value
+            )
             viewModel.validateAndAddNote(note)
         }
 

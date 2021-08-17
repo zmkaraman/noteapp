@@ -48,4 +48,10 @@
         <item name="android:fontFamily">serif-monospace</item>
         <item name="android:textColor">@color/darkGray</item>
     </style>
+
+    <style name="CustomEditText">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColorHint">@color/darkGray</item>
+        <item name="android:textColor">@color/darkGray</item>
+    </style>
 </resources>

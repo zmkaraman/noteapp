@@ -16,6 +16,7 @@ class AddNoteViewModel(
 
     val title = MutableLiveData<String>()
     val description = MutableLiveData<String>()
+    val imageUrl = MutableLiveData<String>()
     val navigateBackToList = MutableLiveData<Boolean>()
     val errorMsg = MutableLiveData<String>()
 

@@ -30,4 +30,22 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="CustomTextThin">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="CustomTextTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/ltGray</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomTextRegular" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="android:textColor">@color/darkGray</item>
+    </style>
 </resources>

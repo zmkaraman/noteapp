@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="noteDataItem"
             type="com.task.noteapp.model.NoteDataItem" />
@@ -15,21 +16,19 @@
 
         <TextView
             android:id="@+id/noteCreated"
+            style="@style/CustomTextThin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_dark_background"
             app:formatCreateTag="@{noteDataItem.createDate}"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintEnd_toStartOf="@+id/noteUpdated"
-            app:layout_constraintTop_toTopOf="@+id/guidelineTop"/>
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop" />
 
         <TextView
             android:id="@+id/noteUpdated"
+            style="@style/CustomTextThin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_dark_background"
             app:formatUpdateTag="@{noteDataItem.updateDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/noteCreated"
@@ -64,10 +63,10 @@
 
         <Button
             android:id="@+id/buttonUpdateNote"
+            style="@style/Widget.App.Button.RegularButton.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
-            style="@style/Widget.App.Button.RegularButton.IconOnly"
             android:text="@string/note_update_button"
             app:icon="@drawable/ic_save"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -77,12 +76,12 @@
 
         <Button
             android:id="@+id/buttonDeleteNote"
+            style="@style/Widget.App.Button.OutlinedButton.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-            app:icon="@drawable/ic_delete"
             android:layout_margin="@dimen/padding_medium"
             android:text="@string/note_delete_button"
+            app:icon="@drawable/ic_delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonUpdateNote"

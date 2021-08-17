@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#E12E4A</color>
     <color name="yellow">#F1E038</color>
-    <color name="shrine_pink_900">#E8B8C8</color>
-    <color name="shrine_pink_100">#40071A</color>
+    <color name="darkGray">#3A3737</color>
+    <color name="ltGray">#615C5C</color>
 </resources>

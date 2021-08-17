@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="iconPadding">0dp</item>
+    <style name="Widget.App.Button.RegularButton.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">20dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">30dp</item>
         <item name="android:minWidth">48dp</item>
         <item name="android:minHeight">48dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
     </style>
 
-    <style name="Widget.App.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.TextButton</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Button</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">20dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
     </style>
 
-    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">4dp</item>
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ThemeOverlay.App.Button.TextButton" parent="">
-        <item name="colorPrimary">#9112A7</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Button" parent="">
-        <item name="colorPrimary">@color/shrine_pink_100</item>
-        <item name="colorOnPrimary">@color/shrine_pink_900</item>
-    </style>
 </resources>

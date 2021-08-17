@@ -43,6 +43,10 @@
             app:argType="com.task.noteapp.model.NoteDataItem"/>
         <action
             android:id="@+id/action_noteDetailFragment_to_noteListFragment"
-            app:destination="@id/noteListFragment"/>
+            app:destination="@id/noteListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 </navigation>

@@ -67,7 +67,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
+            style="@style/Widget.App.Button.RegularButton.IconOnly"
             android:text="@string/note_update_button"
+            app:icon="@drawable/ic_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonDeleteNote"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +108,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="@dimen/padding_normal" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

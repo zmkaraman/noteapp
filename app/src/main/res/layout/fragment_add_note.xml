@@ -41,8 +41,10 @@
 
         <Button
             android:id="@+id/buttonAddNote"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.App.Button.RegularButton.IconOnly"
+            app:icon="@drawable/ic_save"
             android:layout_margin="@dimen/padding_medium"
             android:text="@string/note_button"
             app:layout_constraintEnd_toEndOf="parent"
